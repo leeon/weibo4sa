@@ -1,0 +1,22 @@
+Êý¾Ý¿â²Ù×÷
+
+
+CREATE TABLE `model_weibo_item` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `content` varchar(280) NOT NULL DEFAULT '',
+  `date` datetime NOT NULL,
+  `author` varchar(80) NOT NULL DEFAULT '',
+  `reads` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+CREATE TABLE `app_log` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `date` datetime DEFAULT NULL,
+  `user` varchar(80) DEFAULT NULL,
+  `operations` varchar(80) DEFAULT NULL,
+  `content` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+

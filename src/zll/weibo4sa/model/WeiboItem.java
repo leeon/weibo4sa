@@ -1,6 +1,6 @@
 package zll.weibo4sa.model;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class WeiboItem {
 

@@ -3,7 +3,7 @@ package zll.weibo4sa.db;
 import java.sql.*;
 
 public class DB_Manager {
-	private static String url = "jdbc:mysql://localhost:3306/weibo";
+	private static String url = "jdbc:mysql://localhost:3306/weibo?useUnicode=true&characterEncoding=UTF-8";
 	private static String username = "root";
 	private static String password = "123";
 

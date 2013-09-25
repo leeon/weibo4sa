@@ -6,5 +6,5 @@ public interface Observable {
 
 	public void removeObserver(Observer o);
 
-	public void notify(Object object, Object data);
+	public void notify( Object data);
 }
