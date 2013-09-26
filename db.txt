@@ -1,5 +1,3 @@
-Êý¾Ý¿â²Ù×÷
-
 
 CREATE TABLE `model_weibo_item` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
