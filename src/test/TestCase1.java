@@ -41,10 +41,15 @@ public class TestCase1 {
 			}else if(2 == op){
 				create(m);
 				
-			}else if(3 == op){
-				delete(m);
-			}			
+			}		
 		}
+		
+		System.out.println("---------------------------------------");
+		System.out.println("              weibo4sa 1.0           ");
+		System.out.println("       http://octsky.com/weibo4sa/     ");
+		System.out.println("                ByeBye                 ");
+		System.out.println("---------------------------------------");
+		
 
 	}
 	
@@ -56,6 +61,19 @@ public class TestCase1 {
 			System.out.println("---------------------------------------");
 			System.out.println("1.Next  2.Create  3.Delete 4.Update 0.Quit");	
 			System.out.println("---------------------------------------");
+			
+			op = sc.nextInt();
+			sc.nextLine();
+			
+			if(op == 3){
+				delete(m,item);
+			}else if(op ==1){
+				readNext(m,true);
+			}else if(op == 2){
+				create(m);
+			}else if(op == 4){
+				update(m,item);
+			}
 		}else{
 			System.out.println("---------------------------------------");
 			System.out.println("已经没有更"+(order?"旧":"新")+"的微博");
@@ -80,7 +98,30 @@ public class TestCase1 {
 		System.out.println("1.Next  2.Create  0.Quit         ");	
 	}
 	
-	public static void delete(WeiboManager m){
-		
+	public static void delete(WeiboManager m,WeiboItem item){
+		m.deleteWeibo(item);
+		System.out.println("---------------------------------------");
+		System.out.println("已经删除微博-_-");
+		System.out.println("---------------------------------------");
+		System.out.println("1.Next  2.Create   0.Quit         ");	
+		System.out.println("---------------------------------------");
 	}
+	
+	public static void update(WeiboManager m,WeiboItem item){
+	
+		System.out.println("---------------------------------");
+		System.out.println("请输入新的微博内容:");
+		String content =sc.nextLine();
+	
+		item.setContent(content);
+		
+		m.updateWeibo(item);
+		System.out.println("---------------------------------------");
+		System.out.println("微博已经更新");
+		System.out.println("---------------------------------------");
+		System.out.println("1.Next  2.Create   0.Quit         ");	
+		System.out.println("---------------------------------------");
+	}
+	
+	
 }

@@ -128,6 +128,7 @@ public class WeiboManager implements Observable{
 		msg.setWeiboItem(item);
 		notify(msg);
 		//DB write
+		weiboList  = readWeibo();
 		return true;
 
 		
