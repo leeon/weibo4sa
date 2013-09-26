@@ -82,11 +82,19 @@ public class WeiboManager implements Observable{
 	}
 	
 	public WeiboItem readNext(boolean order){
-		System.out.println(""+currentWeibo);
+//		System.out.println(""+currentWeibo);
 		
-		WeiboItem item = weiboList.get(currentWeibo);
+		
+		
 		Message msg = new Message();
+		WeiboItem item = null;
 		msg.setComponent(Message.COMPONENT_COUNTER);
+		try{
+			item = weiboList.get(currentWeibo);
+		}catch(IndexOutOfBoundsException e){
+			// return null
+		}
+
 		msg.setWeiboItem(item);
 		
 		if(order){

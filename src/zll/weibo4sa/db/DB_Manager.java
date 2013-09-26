@@ -12,7 +12,7 @@ public class DB_Manager {
 		try{
 			Class.forName("com.mysql.jdbc.Driver").newInstance();
 			connection = DriverManager.getConnection(url, username, password);
-			System.out.println("connection successful");
+//			/System.out.println("connection successful");
 		}catch(InstantiationException e){
 			e.printStackTrace();
 		}catch(IllegalAccessException e){

@@ -35,29 +35,32 @@ public class Counter implements Observer{
 		msg = (Message)data;
 		if(Message.COMPONENT_COUNTER == msg.getComponent()){
 			item = msg.getWeiboItem();
-			int id = item.getID();
-			//actually this mode can be service for more complicated read counters
-			int counter = item.getReads()+1;
-			connection = DB_Manager.getConnection();
+			if(item != null){
+				int id = item.getID();
+				//actually this mode can be service for more complicated read counters
+				int counter = item.getReads()+1;
+				connection = DB_Manager.getConnection();
 
-			String sqlState = "UPDATE model_weibo_item SET `reads`=" + counter;
-			sqlState += " WHERE ID="+id;
-			System.out.println(sqlState); 
-			
-			try {
-				state = connection.createStatement();
-				state.execute("begin");
-				state.executeUpdate(sqlState);
-				state.execute("commit");
-			
-			} catch (SQLException e) {
+				String sqlState = "UPDATE model_weibo_item SET `reads`=" + counter;
+				sqlState += " WHERE ID="+id;
+//				System.out.println(sqlState); 
+				
 				try {
-					state.execute("rollback");
-				} catch (SQLException e1) {
-					e1.printStackTrace();
+					state = connection.createStatement();
+					state.execute("begin");
+					state.executeUpdate(sqlState);
+					state.execute("commit");
+				
+				} catch (SQLException e) {
+					try {
+						state.execute("rollback");
+					} catch (SQLException e1) {
+						e1.printStackTrace();
+					}
+					e.printStackTrace();
 				}
-				e.printStackTrace();
 			}
+
 		}
 		
 	}

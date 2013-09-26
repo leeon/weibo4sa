@@ -31,7 +31,7 @@ public class DAOWeiboItem {
 		try {
 			    state =connection.createStatement();
 				String sqlState = "INSERT INTO `model_weibo_item` (`content`, `date`, `author`, `reads`) VALUES(?,?,?,?)";
-				System.out.println(sqlState);
+//				System.out.println(sqlState);
 				preState = connection.prepareStatement(sqlState);
 				preState.setString(1, item.getContent());
 				preState.setDate(2, item.getDate());
@@ -83,7 +83,7 @@ public class DAOWeiboItem {
 				    state =connection.createStatement();
 					String sqlState = "UPDATE model_weibo_item SET content ='"+item.getContent();
 					sqlState += "'WHERE ID= '" + item.getID()+"'";
-				    System.out.println(sqlState);
+//				    System.out.println(sqlState);
 					preState = connection.prepareStatement(sqlState);
 					preState.executeUpdate(sqlState);
 				
