@@ -11,11 +11,11 @@ import zll.weibo4sa.model.WeiboManager;
 public class Main {
 	public static void main(String [] args){
 		DB_Manager.getConnection();
-		
-//		Observable o  = new WeiboManager();
-//		Observer oo1 = new Counter();
 //		
-//		o.registerObserver(oo1);
+////		Observable o  = new WeiboManager();
+////		Observer oo1 = new Counter();
+////		
+////		o.registerObserver(oo1);
 		
 		//
 		
