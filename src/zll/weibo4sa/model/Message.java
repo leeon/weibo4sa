@@ -1,8 +1,10 @@
 package zll.weibo4sa.model;
 
-public class Message {
+
+public class Message{
 	
-	public static final int TYPE_CREATE = 0;
+    
+    public static final int TYPE_CREATE = 0;
 	public static final int TYPE_UPDATE = 1;
 	public static final int TYPE_READ = 2;
 	public static final int TYPE_DELETE = 3;

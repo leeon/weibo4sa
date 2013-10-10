@@ -1,25 +1,30 @@
 package zll.weibo4sa.model;
-
-import java.sql.Date;
+/******************************************************************************
+ * Author: leeon
+ * Date: 2013-09-27
+ *
+ * Data type for a item of Weibo
+ ******************************************************************************/
+import java.sql.Timestamp;
 
 public class WeiboItem {
 
-	private String author;
-	private Date date;
+	private User author;
+	private Timestamp date;
 	private String content;
 	private int ID;
 	private int reads;
 	
-	public String getAuthor() {
+	public User getAuthor() {
 		return author;
 	}
-	public void setAuthor(String author) {
+	public void setAuthor(User author) {
 		this.author = author;
 	}
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 	public String getContent() {

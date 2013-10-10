@@ -1,6 +1,7 @@
 package zll.weibo4sa.model;
 
 import java.sql.Date;
+import java.sql.Timestamp;
 import java.util.ArrayList;
 
 import zll.weibo4sa.api.Observable;
@@ -51,13 +52,13 @@ public class WeiboManager implements Observable{
 	 * Method : create a weibo
 	 * @param item
 	 * */
-	public WeiboItem createWeibo(String content,String author){
+	public WeiboItem createWeibo(String content,User author){
 
 		WeiboItem item=new WeiboItem();
 		item.setContent(content);
 		item.setAuthor(author);
 		item.setID(0);
-		item.setDate(new Date(System.currentTimeMillis()));
+		item.setDate(new Timestamp(System.currentTimeMillis()));
 		item.setReads(0);
 		
 		dao.create(item); //excute DB

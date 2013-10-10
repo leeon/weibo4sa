@@ -1,12 +1,15 @@
 package zll.weibo4sa.model;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.sql.Timestamp;
 
 
-public class AppLog {
-	private String content;
+public class AppLog implements Serializable{
+
+    private static final long serialVersionUID = 1L;
+    private String content;
 	private String user;
-	private Date date;
+	private Timestamp date;
 	private String operation;
 
 	public String getContent() {
@@ -25,11 +28,11 @@ public class AppLog {
 		this.user = user;
 	}
 
-	public Date getDate() {
+	public Timestamp getDate() {
 		return date;
 	}
 
-	public void setDate(Date date) {
+	public void setDate(Timestamp date) {
 		this.date = date;
 	}
 
