@@ -1,4 +1,5 @@
 package zll.weibo4sa.model;
+import java.io.Serializable;
 /******************************************************************************
  * Author: leeon
  * Date: 2013-09-27
@@ -7,9 +8,9 @@ package zll.weibo4sa.model;
  ******************************************************************************/
 import java.sql.Timestamp;
 
-public class WeiboItem {
+public class WeiboItem implements Serializable{
 
-	private User author;
+    private User author;
 	private Timestamp date;
 	private String content;
 	private int ID;

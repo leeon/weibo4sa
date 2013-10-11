@@ -10,6 +10,10 @@ import zll.weibo4sa.model.WeiboItem;
 import zll.weibo4sa.model.WeiboManager;
 
 public class Main {
+    
+    public static void TestAddUsers(int numbers){
+        
+    }
 	public static void main(String [] args){
 	    
       WeiboManager m = new WeiboManager();
@@ -24,8 +28,8 @@ public class Main {
       System.out.println(u.getName());
       
       m.createWeibo("sadaadasdaa111111", u);
-      WeiboItem item = m.readNext(true);
-      System.out.println(item.getContent());
+      //WeiboItem item = m.readNext(true);
+      //System.out.println(item.getContent());
       
       
 	}

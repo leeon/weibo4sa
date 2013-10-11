@@ -30,7 +30,9 @@ public class DAOWeiboItem {
      * */
     public void create(WeiboItem item) {
         connection = DB_Manager.getConnection();
+        
         try {
+            //connection.setAutoCommit(false);
             state = connection.createStatement();
             String sqlState = "INSERT INTO `model_weibo_item` (`content`, `date`, `reads`, `author_id`) VALUES(?,?,?,?)";
             // System.out.println(sqlState);
@@ -40,7 +42,6 @@ public class DAOWeiboItem {
             preState.setInt(3, item.getReads());
             preState.setInt(4, item.getAuthor().getID());
             
-
             preState.execute("begin");
             preState.executeUpdate();
             preState.execute("commit");
@@ -144,4 +145,36 @@ public class DAOWeiboItem {
         }
     }
 
+    public WeiboItem readOne(int id ){
+        connection = DB_Manager.getConnection();
+        String sqlstate = "SELECT * FROM model_weibo_item weibo,model_user u WHERE weibo.author_id=u.id AND u.id="+id+" ORDER BY weibo.date DESC";
+        WeiboItem item = null;
+        try {
+            state = connection.createStatement();
+            resultset = state.executeQuery(sqlstate);
+
+            while (resultset.next()) {
+                item = new WeiboItem();
+                User u = new User();
+                u.setID(resultset.getInt("u.id"));
+                u.setName(resultset.getString("u.name"));
+                u.setMail(resultset.getString("u.mail"));
+                //TODO to keep temp safe
+//                u.setPassword(resultset.getString("u.password"));
+                item.setID(resultset.getInt("weibo.id"));
+                item.setContent(resultset.getString("content"));
+                item.setDate(resultset.getTimestamp("date"));
+                item.setAuthor(u);
+                item.setReads(resultset.getInt("reads"));
+                return item;
+            }
+            return item;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            DB_Manager.closeDB(connection, state, resultset);
+        }  
+        
+    }
 }

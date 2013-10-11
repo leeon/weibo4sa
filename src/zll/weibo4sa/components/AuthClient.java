@@ -41,5 +41,10 @@ public class AuthClient {
         }
         return null; // password doesn't match
     }
+    
+    public boolean registerUser(User user){
+        mDAOUser.create(user);
+        return true;
+    }
 
 }

@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 import zll.weibo4sa.db.DB_Manager;
 import zll.weibo4sa.model.User;
@@ -58,6 +59,29 @@ public class DAOUser {
         }
     }
 
+    
+    public ArrayList<Integer> readTopN(int N) {
+
+        connection = DB_Manager.getConnection();
+         
+        String sqlstate = "SELECT DISTINCT u.id FROM model_weibo_item weibo,model_user u WHERE weibo.author_id=u.id ORDER BY weibo.reads DESC LIMIT 0,"+N;
+        ArrayList<Integer> result  = new ArrayList<Integer>(100);
+        try {
+            state = connection.createStatement();
+            resultset = state.executeQuery(sqlstate);
+
+            while (resultset.next()) {
+                result.add(resultset.getInt("u.id"));
+            }
+            return result;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        } finally {
+            DB_Manager.closeDB(connection, state, resultset);
+        }
+    }
+    
     
     /**
      * <p>

@@ -72,18 +72,18 @@ public class Logger implements Observer {
             }
 
             // ActiveMQ send message
-            try {
-                initMQSender();
-                connection.start();
-                ObjectMessage message = session
-                        .createObjectMessage((Serializable) log);
-                producer.send(message);
-                session.commit();
-                connection.close();
-            } catch (JMSException e) {
-                // TODO Auto-generated catch block
-                System.err.println("Sending message to QUEUE: "+QUEUE_NAME+" FAILED!");
-            }
+//            try {
+//                initMQSender();
+//                connection.start();
+//                ObjectMessage message = session
+//                        .createObjectMessage((Serializable) log);
+//                producer.send(message);
+//                session.commit();
+//                connection.close();
+//            } catch (JMSException e) {
+//                // TODO Auto-generated catch block
+//                System.err.println("Sending message to QUEUE: "+QUEUE_NAME+" FAILED!");
+//            }
 
         }
 

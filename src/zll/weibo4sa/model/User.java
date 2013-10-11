@@ -1,12 +1,14 @@
 package zll.weibo4sa.model;
 
+import java.io.Serializable;
+
 /******************************************************************************
  * Author: Li Yang Date: 2013-10-09
  * 
  * Data type for User Model
  ******************************************************************************/
 
-public class User {
+public class User implements Serializable{
     private int ID;
     private String name;
     private String password;
